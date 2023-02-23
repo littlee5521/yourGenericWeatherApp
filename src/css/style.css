@@ -1,3 +1,27 @@
-* {
-  background-color: aqua;
+body {
+  height: 100svh;
+  background-color: black;
 }
+
+/*//////////////////    for the grid of display       ////////////////////*/
+
+.divider {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  height: 100%;
+
+}
+
+/*/ /////////////////    for the sidebar               ////////////////////*/
+
+.sidepanel {
+  background-color: burlywood;
+  padding: 5% 5%;
+  text-align: center;
+}
+
+.sidepanel__item {
+  margin: 25%;
+}
+
+/*/ /////////////////    for the main sect              ////////////////////*/
