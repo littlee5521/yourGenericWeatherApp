@@ -1,7 +1,7 @@
 body {
   height: 100svh;
-  background-image: url("../img/rainbackground.jpg");
   color: white;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
 
 /*//////////////////    for the grid of display       ////////////////////*/
@@ -17,7 +17,7 @@ body {
 .sidepanel {
   padding: 3vw 0;
   text-align: center;
-  background-color: rgba(73, 73, 73, 0.5);
+  background-color: rgba(2, 2, 2, 0.3);
 }
 
 .sidepanel__item {
@@ -28,7 +28,7 @@ body {
 
 .hud {
   padding: 3vw 5.5vw 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   display: grid;
 }
 
