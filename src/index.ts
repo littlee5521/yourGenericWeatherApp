@@ -4,4 +4,3 @@ import { weather } from "./script/getWeather";
 import { grabLocation} from './script/suggestLocation'
 
 grabLocation.getSuggestions()
-weather.makeRequest()
