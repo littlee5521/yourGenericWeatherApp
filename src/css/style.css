@@ -24,6 +24,10 @@ body {
   margin: 25% 0;
 }
 
+.sidepanel__button {
+  background-color: #537895;
+}
+
 /*/ /////////////////    for the main sect              ////////////////////*/
 
 .hud {
