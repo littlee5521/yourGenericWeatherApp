@@ -9,7 +9,7 @@ class suggestLocation {
     weatherSuggestion:[] = []
     
     async requestGeoLocation(city:string) {
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=30e04d1cd0f37221765842a92fb32405`, {mode:'cors'})
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=30e04d1cd0f37221765842a92fb32405`, {mode:'cors'})
         const responseClean = await response.json();
         this.weatherSuggestion = await responseClean
         weatherMethods.createItems(this.weatherSuggestion)

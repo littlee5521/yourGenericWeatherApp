@@ -27,6 +27,7 @@ class splitDays {
             currentDay.dayPartList.push(item)
             console.log(this.dayHolder)
         })
+        this.dayHolder.push(currentDay)
     }
 }
 
