@@ -1,5 +1,5 @@
 import { weatherMethods } from "../script/weatherItems";
-import {domutils} from './domUtils'
+
 
 //                  this is to get the value from input and 
 //                   submit a request
@@ -18,7 +18,9 @@ class suggestLocation {
     getSuggestions() {
         this.searchBar.addEventListener('input', () =>{
  //       domutils.removeChildren('.sidepanel__button')
-        this.requestGeoLocation(this.searchBar.value)
+        if (this.searchBar.value!=''){
+            this.requestGeoLocation(this.searchBar.value)
+        }
 
         } )
     }
