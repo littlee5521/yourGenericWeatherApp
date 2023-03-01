@@ -1,7 +1,7 @@
 import {weatherResponse} from '../script/interfaces'
 import {weatherResponseItem} from '../script/interfaces'
 import {weatherResponseWeather} from '../script/interfaces'
-
+// class to hold a day, parts refers to the objects returned in 3 hour steps
 class days {
     dayID:number
     dayPartList:object[] = []
@@ -12,7 +12,7 @@ class days {
 
 class splitDays {
     dayHolder:object[] = []
-
+// takes the array of information and uses their timestamp to split into days
     splitDay(array:weatherResponse){
         let currentDay:days = undefined
         this.dayHolder = []
