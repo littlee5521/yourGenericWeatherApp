@@ -10,6 +10,7 @@ class getWeather {
     async sendData (lat:number, lon:number) {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=30e04d1cd0f37221765842a92fb32405&units=imperial`, {mode:"cors"})
         const responseClean = await response.json()
+        console.log(responseClean)
         splitDay.splitDay(responseClean)
     }
 

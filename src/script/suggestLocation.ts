@@ -21,7 +21,6 @@ class suggestLocation {
         if (this.searchBar.value!=''){
             this.requestGeoLocation(this.searchBar.value)
         }
-
         } )
     }
 }

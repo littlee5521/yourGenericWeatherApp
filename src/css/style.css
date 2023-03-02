@@ -1,7 +1,7 @@
 body {
   height: 100svh;
   color: white;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-image: linear-gradient(to top, #09203f 0%, #537895 40%);
 }
 
 /*//////////////////    for the grid of display       ////////////////////*/
@@ -25,18 +25,49 @@ body {
 }
 
 .sidepanel__button {
-  background-color: #537895;
+  color: white;
+  background-color: inherit;
 }
 
+.search-bar-cont {
+  display: grid;
+  width: 50%;
+  margin: auto;
+}
+
+.search-bar__input {
+  text-align: center;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid;
+}
+.search-bar__input:focus {
+  outline: none;
+}
 /*/ /////////////////    for the main sect              ////////////////////*/
 
 .hud {
   padding: 3vw 5.5vw 0;
   background-color: rgba(0, 0, 0, 0.4);
+}
+.hud__item {
+  margin-bottom: 8%;
+}
+.button-holder {
+  margin-bottom: 5%;
+  background-color: #537895;
+  grid-column: span 4;
+  height: fit-content;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
-
-.hud__temp {
+.forecast-area {
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  gap: 16px;
 }
-.hud__location {
+.forecastTime {
+  width: fit-content;
 }

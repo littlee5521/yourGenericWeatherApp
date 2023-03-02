@@ -6,9 +6,10 @@ export interface weatherResponse {
 // each item inside 
 export interface weatherResponseItem {
     dt_txt:string
+    dt?:number
     main:weatherResponseMain
     pop:number
-    weather:[]
+    weather:weatherResponseWeather[]
     wind:object
 }
 // a sub obj in the item
@@ -23,7 +24,7 @@ interface weatherResponseMain {
     temp_min:number
 }
 // another sub item which is nested in a array
-export interface weatherResponseWeather {
+interface weatherResponseWeather {
     description:string
     main:string
 }

@@ -10,12 +10,15 @@ export interface weatherItem {
     id?: string
 }
 
-let weatherArray:object[] = []
+export let weatherArray:object[] = []
 
 class weatherItems {
+
+    searchBarBody = document.querySelector('.search-bar-cont')
+
 //          to create the dom elements for suggestions
     createItems(itemArray:[]) {
-        const searchBarBody = document.querySelector('.search-bar-cont')
+         
         itemArray.forEach(item => {
             let weatherobjConvert:weatherItem = item
             weatherobjConvert.id = weatherobjConvert.name + weatherobjConvert.lat + weatherobjConvert.lon
@@ -40,7 +43,7 @@ class weatherItems {
            if (document.querySelectorAll('.sidepanel__button').length >= 5){
             document.querySelectorAll('.sidepanel__button')[0].remove()
            }
-           searchBarBody.appendChild(temp)
+           this.searchBarBody.appendChild(temp)
            temp.addEventListener('click', () =>{
              const latLon = weather.getLatLon(weatherArray, temp.id)
              weather.sendData(latLon[0], latLon[1])
