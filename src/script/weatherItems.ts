@@ -46,6 +46,7 @@ class weatherItems {
            this.searchBarBody.appendChild(temp)
            temp.addEventListener('click', () =>{
              const latLon = weather.getLatLon(weatherArray, temp.id)
+             weather.makeRequest(latLon[0], latLon[1])
              weather.sendData(latLon[0], latLon[1])
            })
         });

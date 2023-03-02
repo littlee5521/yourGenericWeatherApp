@@ -1,17 +1,23 @@
 import {weatherItem} from './weatherItems'
 import {splitDay} from './weatherDaySplitting'
+import {weatherResponseItem} from './interfaces'
+import {cards} from './populateCards'
 //                       makes a request to the weather api 
 //                         returns a promise 
 class getWeather {
-    async makeRequest() {
-        const response = await fetch("https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=30e04d1cd0f37221765842a92fb32405", {mode:'cors'})
+    currentWeather:number
+    
+    async makeRequest(lat:number, lon:number) {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=30e04d1cd0f37221765842a92fb32405&units=imperial`, {mode:'cors'})
+        const responseClean:weatherResponseItem = await response.json()
+        this.currentWeather = responseClean.dt
     }
 
     async sendData (lat:number, lon:number) {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=30e04d1cd0f37221765842a92fb32405&units=imperial`, {mode:"cors"})
         const responseClean = await response.json()
-        console.log(responseClean)
         splitDay.splitDay(responseClean)
+        cards.popCards()
     }
 
     getLatLon(arrayTocheck:object[], id:string){
