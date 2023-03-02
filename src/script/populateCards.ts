@@ -9,14 +9,17 @@ import { format, addMinutes } from 'date-fns';
 class populateCards{
     body = document.querySelector('.forecast-area')
   //  tz = Intl.DateTimeFormat().resolvedOptions().timeZone
-    index:number = 0
     formatDate(date:Date) {
         return format(addMinutes(date, date.getTimezoneOffset()), 'cccc');
       }
     popCards(){
         splitDay.dayHolder.forEach((item:days)=>{
             const values = getVal.value(item)
-           console.log(this.formatDate(fromUnixTime(item.dayPartList[0].dt)))
+            let time =this.formatDate(fromUnixTime(item.dayPartList[0].dt))
+            console.log(time)
+
+           let card = cardMaker.makeCard(time, values.max, values.min, item.dayPartList[0].weather[0].description, item.dayPartList[0].pop)
+           this.body.appendChild(card)
         })
     }
 }
