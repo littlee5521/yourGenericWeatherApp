@@ -8,17 +8,15 @@ import { format, addMinutes } from 'date-fns';
 
 class populateCards{
     body = document.querySelector('.forecast-area')
-    tz = Intl.DateTimeFormat().resolvedOptions().timeZone
+  //  tz = Intl.DateTimeFormat().resolvedOptions().timeZone
     index:number = 0
     formatDate(date:Date) {
-        return format(addMinutes(date, date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss');
+        return format(addMinutes(date, date.getTimezoneOffset()), 'cccc');
       }
     popCards(){
         splitDay.dayHolder.forEach((item:days)=>{
             const values = getVal.value(item)
-            console.log('hello')
            console.log(this.formatDate(fromUnixTime(item.dayPartList[0].dt)))
-           console.log(this.tz)
         })
     }
 }
