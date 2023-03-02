@@ -1,14 +1,24 @@
 import { weatherResponseItem } from './interfaces'
 import {splitDay} from './weatherDaySplitting'
 import {days} from './weatherDaySplitting'
+import {cardMaker} from './createCard'
+import fromUnixTime from 'date-fns/fromUnixTime'
+import { format, addMinutes } from 'date-fns';
+
 
 class populateCards{
+    body = document.querySelector('.forecast-area')
+    tz = Intl.DateTimeFormat().resolvedOptions().timeZone
     index:number = 0
+    formatDate(date:Date) {
+        return format(addMinutes(date, date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss');
+      }
     popCards(){
         splitDay.dayHolder.forEach((item:days)=>{
             const values = getVal.value(item)
-            console.log(values.min)
-            console.log(values.max)
+            console.log('hello')
+           console.log(this.formatDate(fromUnixTime(item.dayPartList[0].dt)))
+           console.log(this.tz)
         })
     }
 }
@@ -27,6 +37,8 @@ class getMinMax{
                 temp.max = weatherPart.main.temp_max
             }
         })
+        temp.max = Math.trunc(temp.max)
+        temp.min = Math.trunc(temp.min)
         return temp
     }
 }
