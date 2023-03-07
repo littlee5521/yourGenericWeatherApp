@@ -2,7 +2,7 @@ class newCard {
     makeCard(day:string, maxTemp:number, minTemp:number, desc:string, rain:number){
         const cardHolder = document.createElement('div')
         cardHolder.classList.add('card-holder')
-            const date = document.querySelector('p')
+            const date = document.createElement('p')
             date.classList.add('title-date')
             date.textContent = day
         cardHolder.appendChild(date)
