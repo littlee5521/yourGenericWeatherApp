@@ -1,5 +1,7 @@
 //               should be refactored so dom isnt mixed here
 import { weather } from "./getWeather"
+import {cards} from './populateCards'
+import { splitDay } from "./weatherDaySplitting"
 
 export interface weatherItem {
     country:string 
@@ -45,6 +47,10 @@ class weatherItems {
            }
            this.searchBarBody.appendChild(temp)
            temp.addEventListener('click', () =>{
+
+            splitDay.dayHolder = []
+            console.log(splitDay.dayHolder)
+            cards.deleteCards()
              const latLon = weather.getLatLon(weatherArray, temp.id)
              weather.makeRequest(latLon[0], latLon[1])
              weather.sendData(latLon[0], latLon[1])

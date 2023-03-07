@@ -8,24 +8,27 @@ import { format, addMinutes } from 'date-fns';
 
 class populateCards{
     body = document.querySelector('.forecast-area')
+
+    deleteCards() {
+        if(this.body.childNodes.length>0){
+            this.body.childNodes.forEach((item:Element) =>{
+                this.body.removeChild(item)
+            })
+        }
+    }
   //  tz = Intl.DateTimeFormat().resolvedOptions().timeZone
     formatDate(date:Date) {
         return format(addMinutes(date, date.getTimezoneOffset()), 'cccc');
       }
     popCards(){
-        if(this.body.childNodes.length>0){
-            this.body.childNodes.forEach((item:Element) =>{
-            })
-        }
+
+        console.log(this.body.childNodes)
 
         splitDay.dayHolder.forEach((item:days)=>{
-            console.log(item)
 
             const values = getVal.value(item)
             let time =this.formatDate(fromUnixTime(item.dayPartList[0].dt))
-            console.log(time)
            let card = cardMaker.makeCard(time, values.max, values.min, item.dayPartList[0].weather[0].description, item.dayPartList[0].pop)
-           console.log(card)
            this.body.appendChild(card)
         })
     }
