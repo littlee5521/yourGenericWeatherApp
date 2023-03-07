@@ -67,6 +67,7 @@ body {
   display: grid;
   grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
   gap: 16px;
+  height: fit-content;
 }
 .forecastTime {
   width: fit-content;
