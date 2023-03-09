@@ -10,9 +10,12 @@ class populateCards{
     body = document.querySelector('.forecast-area')
 
     deleteCards() {
-        if(this.body.childNodes.length>0){
+       const temp = this.body.childElementCount
+        let temp2 = 0
+        while(temp>temp2){
             this.body.childNodes.forEach((item:Element) =>{
                 this.body.removeChild(item)
+                temp2++
             })
         }
     }
