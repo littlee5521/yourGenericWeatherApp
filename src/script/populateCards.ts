@@ -4,6 +4,7 @@ import {days} from './weatherDaySplitting'
 import {cardMaker} from './createCard'
 import fromUnixTime from 'date-fns/fromUnixTime'
 import { format, addMinutes } from 'date-fns';
+import {weather} from './getWeather'
 
 
 class populateCards{
@@ -23,16 +24,27 @@ class populateCards{
     formatDate(date:Date) {
         return format(addMinutes(date, date.getTimezoneOffset()), 'cccc');
       }
-    popCards(){
 
-        console.log(this.body.childNodes)
+      // i think this is kind of a crappy fix, because of the order everythings called current day wasnt being defined so now its a async function
+  async  popCards(){
+        const temp:weatherResponseItem = await weather.currentDay
+
+        
 
         splitDay.dayHolder.forEach((item:days)=>{
-
-            const values = getVal.value(item)
             let time =this.formatDate(fromUnixTime(item.dayPartList[0].dt))
-           let card = cardMaker.makeCard(time, values.max, values.min, item.dayPartList[0].weather[0].description, item.dayPartList[0].pop)
-           this.body.appendChild(card)
+
+
+            if(time!=this.formatDate(fromUnixTime(temp.dt))){
+                if(item.dayPartList.length==8){
+                    const values = getVal.value(item)
+                    let card = cardMaker.makeCard(time, values.max, values.min, item.dayPartList[0].weather[0].description, item.dayPartList[0].pop)
+                    this.body.appendChild(card)
+                }   
+            }
+
+
+
         })
     }
 }
