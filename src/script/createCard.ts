@@ -1,5 +1,5 @@
 class newCard {
-    makeCard(day:string, maxTemp:number, minTemp:number, desc:string, rain:number){
+    makeCard(day:string, maxTemp:number, minTemp:number, desc:string, rain?:number){
         const cardHolder = document.createElement('div')
         cardHolder.classList.add('card-holder')
             const date = document.createElement('p')
@@ -22,10 +22,12 @@ class newCard {
             description.textContent = desc
         cardHolder.appendChild(description)
 
-            const chanceForRain = document.createElement('p')
-            chanceForRain.classList.add('rain')
-            chanceForRain.textContent = `Chance of Rain ${rain*100}`
-        cardHolder.appendChild(chanceForRain)
+            if(rain!=undefined){
+                const chanceForRain = document.createElement('p')
+                chanceForRain.classList.add('rain')
+                chanceForRain.textContent = `Chance of Rain ${rain*100}`
+            cardHolder.appendChild(chanceForRain)
+            }
         return cardHolder
     }
 }

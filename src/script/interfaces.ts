@@ -28,3 +28,26 @@ interface weatherResponseWeather {
     description:string
     main:string
 }
+
+export interface todayResponse{
+    weather:todayResponseWeather[]
+    main:todayResponseMain
+    dt:number
+    sys:todayResponseSys
+}
+
+interface todayResponseMain{
+    temp:number
+    feels_like:number
+    temp_min:number
+    temp_max:number
+}
+
+interface todayResponseWeather{
+    main:string
+    description:string
+}
+ interface todayResponseSys {
+    sunrise:number
+    sunset:number
+ }

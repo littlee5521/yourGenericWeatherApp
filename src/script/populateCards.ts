@@ -1,4 +1,4 @@
-import { weatherResponseItem } from './interfaces'
+import { todayResponse, weatherResponseItem } from './interfaces'
 import {splitDay} from './weatherDaySplitting'
 import {days} from './weatherDaySplitting'
 import {cardMaker} from './createCard'
@@ -27,7 +27,7 @@ class populateCards{
 
       // i think this is kind of a crappy fix, because of the order everythings called current day wasnt being defined so now its a async function
   async  popCards(){
-        const temp:weatherResponseItem = await weather.currentDay
+        const temp:todayResponse = await weather.currentDay
 
         
 

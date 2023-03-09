@@ -49,7 +49,6 @@ class weatherItems {
            temp.addEventListener('click', () =>{
 
             splitDay.dayHolder = []
-            console.log(splitDay.dayHolder)
             cards.deleteCards()
              const latLon = weather.getLatLon(weatherArray, temp.id)
              weather.makeRequest(latLon[0], latLon[1])

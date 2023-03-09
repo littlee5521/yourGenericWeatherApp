@@ -1,7 +1,5 @@
 import {weatherResponse} from '../script/interfaces'
 import {weatherResponseItem} from '../script/interfaces'
-import fromUnixTime from 'date-fns/fromUnixTime'
-import isSameDay from 'date-fns/isSameDay'
 // class to hold a day, parts refers to the objects returned in 3 hour steps
 export class days {
     dayID:number
